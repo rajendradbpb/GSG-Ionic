@@ -1,0 +1,28 @@
+
+<ion-modal-view class="modal-request-details">
+    <ion-header-bar class="bar-energized modal-req-det-hed" >
+        <button class="button button-clear" ng-click="tlCtrl.closeCodConfirmModdal()">
+            <i class="icon ion-android-close"></i>
+        </button>
+        <h1 class="title">COD Confirmation</h1>
+    </ion-header-bar>
+    <ion-content class="whitesmoke">      
+        <ion-item class="whitesmoke">
+                <span class="span-text">Please enter discount (If any) </span>
+                <label class="item item-input">
+                    <input type="number" ng-model="tlCtrl.cod.discount" placeholder="Discount" ng-change="tlCtrl.reduceDiscountFromCod(tlCtrl.cod.discount)" >
+                </label>
+            <span class="span-text">The final amount after discount with GST is {{tlCtrl.finalAmt}} </span><hr>
+            <span class="span-text">Please enter Final amount </span>
+                <label class="item item-input">
+                    <input type="number" ng-model="tlCtrl.cod.final" placeholder="Final Amount">
+                </label> 
+        </ion-item>                     
+    </ion-content>
+    <ion-footer-bar class="map-footer" >
+        <div class="button-bar">
+            <!-- <a class="button req-modal-ftr-btn" ng-click="reqCtrl.closeCodConfirmModdal()"> <i class="icon ion-android-favorite red"></i> Cancel</a> <i class="icon ion-android-mail"></i>-->
+            <a class="button req-modal-ftr-btn" ng-click="tlCtrl.confirmCOD(tlCtrl.cod.final,tlCtrl.finalAmt,tlCtrl.orderDetailGCCOD.OrderdtlId)"> Submit</a>
+        </div>
+    </ion-footer-bar>
+</ion-modal-view>

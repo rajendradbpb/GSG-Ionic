@@ -1,0 +1,43 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-energized gsg-colour">
+        <button class="button button-clear" ng-click="planCtrl.closePlanListModal()">
+            <i class="icon ion-android-close"></i>
+        </button>
+        <h1 class="title">100 rs Plan</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list list-plan">
+            <a class="item item-avatar" ng-hide="services.freeUsage == 0" href="" ng-repeat="services in planCtrl.planSrvcDtls.schemeServiceDtls" >
+                <h2>{{services.freeUsage == 99 ? "Unlimited" : services.freeUsage }} &nbsp; {{services.serviceDesc}}</h2>
+            </a>
+            <!-- <ion-list>
+                <h3 class ="title">Referred By</h3>
+                <ion-radio ng-model="choice" ng-value="'A'">Internet</ion-radio>
+                <ion-radio ng-model="choice" ng-value="'B'">Social</ion-radio>
+                <ion-radio ng-model="choice" ng-value="'C'">Friend <input type="text" value="123" style="width: 50px;"></ion-radio>
+                <ion-radio ng-model="choice" ng-value="'D'">Employee</ion-radio>
+            </ion-list> -->
+            <div class="list">
+                    <h4 class="title">Referred By</h4>
+
+                    <div class="item item-divider">
+                            <ion-radio ng-model="choice" ng-value="'A'">Internet</ion-radio>
+                    </div>
+                    <div class="item item-divider">
+                            <ion-radio ng-model="choice" ng-value="'B'">Social</ion-radio>
+                    </div>
+                    <div class="item item-divider" ng-click="selectedOption("")">
+                            <ion-radio ng-model="choice" ng-value="'C'">Friend </ion-radio>     
+                    </div>
+                    <div class="item item-divider" ng-click="selectedOption("")">
+                            <ion-radio ng-model="choice" ng-value="'D'">Employee</ion-radio>
+                      </div>
+            </div>
+           
+        </div>
+        
+    </ion-content>
+    <ion-footer-bar class="map-footer" >
+        <button class="button button-block button-map" type="submit" ng-click="planCtrl.subscribePlan(planCtrl.planSrvcDtls)" >PAY NOW  ({{planCtrl.planSrvcDtls.price}}+ GST) </button>        
+    </ion-footer-bar>
+</ion-modal-view>
